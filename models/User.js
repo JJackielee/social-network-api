@@ -1,9 +1,10 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 // Construct a new instance of the schema class
-const userSchema = new mongoose.Schema({
+//, match: "/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/"
+const userSchema = new Schema({
   // Configure individual properties using Schema Types
   username: { type: String, required: true,unique:true,trim:true },
-  email: { type: String, required: false,unique:true, match: "/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/" },
+  email: { type: String, required: false,unique:true },
   thoughts: {},
   friends: [{
     type: Schema.Types.ObjectId,
@@ -17,11 +18,11 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-postSchema.virtual('friendCount').get(function () {
+userSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });
 
-const User = mongoose.model('user', userSchema);
+const User = model('user', userSchema);
 
 
 

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 // Construct a new instance of the schema class
-const thoughtSchema = new mongoose.Schema({
+const thoughtSchema = new Schema({
   // Configure individual properties using Schema Types
   thoughtText: { type: String, required: true, maxLength:280, minLength:1 },
   user: {},
@@ -20,7 +20,7 @@ thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
 
-const Thought = mongoose.model('thought', thoughtSchema);
+const Thought = model('thought', thoughtSchema);
 
 
 
