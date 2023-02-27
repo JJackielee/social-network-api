@@ -1,8 +1,9 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
-// Construct a new instance of the schema class
+//thoughts schema to define the thoughts Model
+//using reactionschema to define the structure for the array of objects for reactions
 const thoughtSchema = new Schema({
-  // Configure individual properties using Schema Types
+  
   thoughtText: { type: String, required: true, maxLength: 280, minLength: 1 },
   username: { type: String, require: true },
   reactions: [reactionSchema],
@@ -13,7 +14,7 @@ const thoughtSchema = new Schema({
       virtuals: true,
     }
   });
-
+// using a virtual we create a count for the amount of objects in our reaction array
 thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });

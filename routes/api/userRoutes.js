@@ -1,4 +1,5 @@
 const router = require('express').Router();
+//thought methods that was passed via our controllers
 const {
     getUser,
     getSingleUser,

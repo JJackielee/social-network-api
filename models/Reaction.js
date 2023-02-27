@@ -1,7 +1,7 @@
 const { Schema, Types } = require('mongoose');
-// Construct a new instance of the schema class
+// reaction schema to define structure for each reaction
 const reactionSchema = new Schema({
-  // Configure individual properties using Schema Types
+  
   reactionId: {  
     type: Schema.Types.ObjectId,
     default: new Types.ObjectId},

@@ -1,7 +1,8 @@
 const { Schema, model } = require('mongoose');
-// Construct a new instance of the schema class
+//userschema to define the user model
 const userSchema = new Schema({
-  // Configure individual properties using Schema Types
+  // we're referencing our thoughts model and using objectID to connect thoughts with users
+  // we are also referencing the user model and using objectID to connect users with friends
   username: { type: String, required: true, unique: true, trim: true },
   email: { type: String, required: false, unique: true, match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'Please fill a valid email address'] },
   thoughts: [{
