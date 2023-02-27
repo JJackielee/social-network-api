@@ -5,10 +5,12 @@ const userSchema = new Schema({
   // Configure individual properties using Schema Types
   username: { type: String, required: true,unique:true,trim:true },
   email: { type: String, required: false,unique:true },
-  thoughts: {},
+  thoughts: [{    
+    type: Schema.Types.ObjectId,
+    ref: 'thought',}],
   friends: [{
     type: Schema.Types.ObjectId,
-    ref: 'thought',
+    ref: 'user',
   },],
   lastAccessed: { type: Date, default: Date.now },
 },

@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const thoughtSchema = new Schema({
   // Configure individual properties using Schema Types
   thoughtText: { type: String, required: true, maxLength:280, minLength:1 },
-  user: {},
+  username: {type:String, require:true},
   reactions: [{
     type: Schema.Types.ObjectId,
     ref: 'reaction',
